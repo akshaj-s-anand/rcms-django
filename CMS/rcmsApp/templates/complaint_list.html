@@ -1,0 +1,35 @@
+{% load static %}
+{% include 'header.html' %}
+<div class="container comp-head">
+    <a class="reg" href="{% url 'new_complaint' %}">Register New Complaint</a>
+    <h2>Complaints for Customer: {{ complaints.0.customer.name }}</h2>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Pub Date</th>
+                    <th>Item</th>
+                    <th>Brand</th>
+                    <th>Model</th>
+                    <th>Complaint</th>
+                    <th>Assigned Engineer</th>
+                    <th>Status</th>
+                    <th>Bill Amount</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for complaint in complaints %} 
+                    <tr>
+                        <td>{{ complaint.pub_date }}</td>
+                        <td>{{ complaint.item }}</td>
+                        <td>{{ complaint.brand }}</td>
+                        <td>{{ complaint.model }}</td>
+                        <td>{{ complaint.complaint }}</td>
+                        <td>{{ complaint.assigned_engineer }}</td>
+                        <td>{{ complaint.status }}</td>
+                        <td>{{ complaint.bill_amount }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+</div>
+{% include 'footer.html' %}

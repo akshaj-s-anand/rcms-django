@@ -1,0 +1,14 @@
+{% load static %}
+{% include 'header.html' %}
+
+<div class="container-form flex-coloum mt-100">
+<form class="form" method="post" action="{% url 'engineer_search' %}">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="reg">Login as engineer</button>
+</form>
+</div>
+{% if error_message %}
+    <p>{{ error_message }}</p>
+{% endif %}
+{% include 'footer.html' %}

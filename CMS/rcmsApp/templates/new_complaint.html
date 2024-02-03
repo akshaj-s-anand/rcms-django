@@ -1,0 +1,14 @@
+{% load static %}
+{% include 'header.html' %}
+<div class="container-form flex-coloum mt-100">
+  <h2>New Complaint</h2>
+  <form class="form" method="post" action="{% url 'new_complaint' %}">
+    {% csrf_token %}
+
+    {{ form.as_p }}
+
+    <button type="submit" class="reg">Submit</button>
+  </form>
+</div>
+
+{% include 'footer.html' %}
