@@ -4,7 +4,7 @@ from .forms import CustomerRegistrationForm, PhoneSearchForm, EngineerSearchForm
 from django.contrib import messages
 
 def index(request):
-    return render(request, 'index.html')
+    return render(request, 'home/index.html')
 def complaint_form(request): 
     if request.method == 'POST':
         form = CustomerRegistrationForm(request.POST)
@@ -22,7 +22,7 @@ def complaint_form(request):
         'complaints': complaints,
         'form': form,
     }
-    return render(request, 'complaint_form.html', context)
+    return render(request, 'support/complaint_form.html', context)
 
 def search_complaints(request):
     if request.method == 'POST':
@@ -38,7 +38,7 @@ def search_complaints(request):
                 return render(request, 'search_complaints.html', {'form': form, 'error_message': error_message})
     else:
         form = PhoneSearchForm()
-    return render(request, 'search_complaints.html', {'form': form})
+    return render(request, 'support/search_complaints.html', {'form': form})
 
 def engineer_search(request):
     if request.method == 'POST':
@@ -53,18 +53,18 @@ def engineer_search(request):
             if engineer:
                 # Retrieve complaints related to the engineer
                 complaints = Complaint.objects.filter(assigned_engineer=engineer).order_by('-pub_date')
-                return render(request, 'complaints_for_engineer.html', {'complaints': complaints})
+                return render(request, 'support/complaints_for_engineer.html', {'complaints': complaints})
             else:
                 error_message = "No engineer found with the specified name and phone number."
-                return render(request, 'engineer_search.html', {'form': form, 'error_message': error_message})
+                return render(request, 'support/engineer_search.html', {'form': form, 'error_message': error_message})
     else:
         form = EngineerSearchForm()
-    return render(request, 'engineer_search.html', {'form': form})
+    return render(request, 'support/engineer_search.html', {'form': form})
 
 
 
 def complaint_list(request):
-    return render(request, 'complaint_list.html')
+    return render(request, 'support/complaint_list.html')
 
 
 def register_complaint(request):
@@ -92,11 +92,11 @@ def register_complaint(request):
                 )
 
                 # Redirect to the complaint list or any other page
-                return redirect('complaint_list')
+                return redirect('support/complaint_list')
 
             # Handle the case when the customer is not found
             error_message = "Customer not found with the specified name and phone number."
-            return render(request, 'complaint_list.html', {'form': form, 'error_message': error_message})
+            return render(request, 'support/complaint_list.html', {'form': form, 'error_message': error_message})
 
     else:
         form = ComplaintForm()
@@ -104,7 +104,7 @@ def register_complaint(request):
         form.fields['brand'].queryset = Brand.objects.all()
         form.fields['model'].queryset = Model.objects.all()
 
-    return render(request, 'complaint_list.html', {'form': form})
+    return render(request, 'support/complaint_list.html', {'form': form})
 
 
 def new_complaint(request):
@@ -112,15 +112,18 @@ def new_complaint(request):
         form = NewComplaintForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('register_complaint')  # Redirect to the success page
+            return redirect('support/register_complaint')  # Redirect to the success page
     else:
         form = NewComplaintForm()
 
-    return render(request, 'new_complaint.html', {'form': form})
+    return render(request, 'support/new_complaint.html', {'form': form})
 
 
 
 def register_complaint(request):
 
-    return render(request, 'register_complaint.html')
+    return render(request, 'support/register_complaint.html')
+
+def complaint_home(request):
+    return render(request, 'support/complaint_home.html')
 

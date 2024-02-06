@@ -1,6 +1,6 @@
 from django.urls import path
 from . import views
-from .views import search_complaints, engineer_search, complaint_list, new_complaint, register_complaint
+from .views import search_complaints, engineer_search, complaint_list, new_complaint, register_complaint, complaint_home
 
 urlpatterns = [
     path("", views.index, name="index"),
@@ -10,4 +10,5 @@ urlpatterns = [
     path('complaint_list/', complaint_list, name='complaint_list'),
     path('new_complaint/', new_complaint, name='new_complaint'),
     path('register_complaint/', register_complaint, name='register_complaint'),
+    path('complaint_home/', complaint_home, name= 'complaint_home')
 ]
