@@ -119,6 +119,8 @@ USE_TZ = True
 
 STATIC_URL = os.path.join(BASE_DIR,'/rcmsApp/static/')
 STATIC_ROOT = os.path.join(BASE_DIR,'/rcmsApp/static/')
+MEDIA_URL =  os.path.join(BASE_DIR, '/rcmsApp/img/')
+MEDIA_ROOT = os.path.join(BASE_DIR, '/rcmsApp/img/')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field

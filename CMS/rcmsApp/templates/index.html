@@ -18,6 +18,14 @@
   </a>
 </div>
 <a href="{% url 'search_complaints' %}"><div class="container flex mt-100 status">Check Complaint Status/ Register new complaint</div></a> {% endcomment %}
+<div class="flex home-main">
+  <h2>Orion Complaint Registration Portal</h2>
+</div>
+<div class="buttonarea flex container">
+  <a href="{% url 'complaint_form' %}" target="_blank" class="reg">customer registration portal</a>
+  <a href="{% url 'search_complaints' %}" target="_blank" class="reg">Find your Complaint status</a>
+
+</div>
 <div class="full-width">
   <div class="small-container flex">
     <div class="how-we-work">
@@ -31,7 +39,7 @@
 
           For those who have already completed the registration process on our website,
 
-          effortlessly access your personalized profile by using the <a href="{% url 'search_complaints' %}" target="_blank">Customer Login</a> feature.<br />
+          effortlessly access your personalized profile by using the <a href="{% url 'complaint_form' %}" target="_blank">customer registration portal</a> feature.<br />
 
           Once you've officially become an esteemed member of our customer community,
 

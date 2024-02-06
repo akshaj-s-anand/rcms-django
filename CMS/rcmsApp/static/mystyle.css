@@ -403,7 +403,6 @@ nav a:hover,
     width: 1000px;
 }
 .login-area{
-    width: 250px;
     padding: 30px;
     margin: 80px 0 0 0;
 
@@ -422,7 +421,7 @@ nav a:hover,
     text-align: justify;
 }
 .step{
-    padding: 20px;
+    padding: 30px 60px;
     background-color: #fff;
     border-radius: 10px;
     margin: 5px 0 20px 0;
@@ -432,10 +431,42 @@ nav a:hover,
     padding: 20px;
     border-radius: 10px;
     width: 100%;
+    width: 250px;
+
 }
 .login-pannel ul{
     list-style: none;
 }
 .login-pannel ul li{
     margin: 10px 0 10px -30px;
+}
+.buttonarea{
+    margin-top: 100px;
+}
+.buttonarea a{
+    margin: 0 50px 0 50px;
+    text-transform: uppercase;
+    height: 50px;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+}
+/* home banner  */
+.home-main{
+    background-color: #6a1a1a;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    height: 200px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+    width: 100%;
+    color: #fff;
+    align-items: center;
+}
+.banner h2{
+    margin: 100px 0;
 }
