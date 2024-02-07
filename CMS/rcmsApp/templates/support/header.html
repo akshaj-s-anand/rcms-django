@@ -24,17 +24,17 @@
           <div class="dropdown-content">
               <a href="{% url 'battery' %}">Battery</a>
               <a href="{% url 'solar_products' %}">Solar Products</a>
-              <a href="{% url 'solar_water_heater' %}">UPS/Inverter</a>
-              <a href="{% url 'ups' %}">Solar Water Heater</a>
+              <a href="{% url 'ups' %}">UPS/Inverter</a>
+              <a href="{% url 'solar_water_heater' %}">Solar Water Heater</a>
           </div>
       </div>
-      <div class="dropdown">
+      {% comment %} <div class="dropdown">
         <a class="dropbtn">Brand</a>
         <div class="dropdown-content">
             <a href="{% url 'battery' %}">Orion</a>
             <a href="{% url 'solar_products' %}">Livguard</a>
         </div>
-      </div>
+      </div> {% endcomment %}
         <a href="{% url 'contact' %}">Contact</a>
         <a href="{% url 'complaint_home' %}">Complaint</a>
       </div>

@@ -13,6 +13,26 @@ nav {
     padding: 10px 50px;
 
 }
+/* Track */
+::-webkit-scrollbar-track {
+    background: #6a1a1a; 
+  }
+  ::-webkit-scrollbar {
+    width: 3px; 
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #555; 
+    width: 3px; 
+    border-radius: 10px;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+    border-radius: 10px;
+  }
 
 nav a,
 .dropbtn {
@@ -876,4 +896,28 @@ ul{
 }
 .contact-form p textarea{
     width: 100%;
+}
+.battery-s1 h1{
+    color: #cc0000;
+}
+.battery-card{
+    max-width: 300px;
+    margin: 15px;
+}
+.battery-card table{
+    border-collapse: collapse;
+}
+.battery-card td{
+    border: 1px solid black;
+    padding: 8px;
+    text-align: left;
+}
+.battery-card img{
+    height: 300px;
+    width: 300px;
+    aspect-ratio: 1;
+    object-fit: contain;
+}
+.battery-card p{
+    height: 40px !important;
 }

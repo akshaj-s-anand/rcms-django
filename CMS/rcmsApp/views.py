@@ -256,3 +256,5 @@ def brand_livguard(request):
         'title':title,
     }
     return render(request, 'home/brand_livguard.html', context)
+
+

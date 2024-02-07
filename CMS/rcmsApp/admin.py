@@ -16,14 +16,20 @@ class ComplaintInline(admin.TabularInline):  # You can also use admin.StackedInl
     extra = 0
 
 class CustomerAdmin(admin.ModelAdmin):
-    list_display = ('name', 'phone_number', 'email_id', 'address', 'total_billed_amount')
+    list_display = ('name', 'phone_number', 'email_id', 'address', 'get_total_billed_amount')
     search_fields = ('name', 'phone_number', 'email_id', 'address')
     inlines = [ComplaintInline]
-    def total_billed_amount(self, obj):
-        total_amount = obj.complaint_set.aggregate(Sum('bill_amount'))['bill_amount__sum']
-        return total_amount if total_amount is not None else 0
 
-    total_billed_amount.short_description = 'Total Billed Amount'
+    def get_queryset(self, request):
+        queryset = super().get_queryset(request)
+        queryset = queryset.annotate(total_billed_amount=Sum('complaint__bill_amount'))
+        return queryset
+
+    def get_total_billed_amount(self, obj):
+        return obj.total_billed_amount if obj.total_billed_amount is not None else 0
+
+    get_total_billed_amount.short_description = 'Total Billed Amount'
+    get_total_billed_amount.admin_order_field = 'total_billed_amount'
 
 class BrandAdmin(admin.ModelAdmin):
     list_display = ('brand_name',)
@@ -48,7 +54,7 @@ class ItemAdmin(admin.ModelAdmin):
     get_model_name.admin_order_field = 'model__model_name'  # Allow sorting by model name
 
 class ComplaintAdmin(admin.ModelAdmin):
-    list_display = ('customer_name', 'customer_phone_number', 'customer_bill_amount')
+    list_display = ('customer_name', 'customer_phone_number', 'customer_bill_amount', 'status')
     
     def customer_name(self, obj):
         return obj.customer.name if obj.customer else None

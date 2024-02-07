@@ -1,5 +1,59 @@
 {% load static %}
 {% include 'support/header.html' %}
-
-
+<div class="container battery-s1">
+  <h1>Solar Water Heater</h1>
+  <p>Eco-Friendly Solar Water Heaters for Homes. Discover Affordable, High-Quality Solutions to Elevate Your Energy Efficiency.</p>
+</div>
+<div class="container battery-s2 flex wrap">
+    {% comment %} card starts {% endcomment %}
+    <div class="battery-card">
+        <img src="{% static 'img/1650089593112-300x300.jpg' %}" alt="">
+        <sub>Orion</sub>
+        <p>ORION Solar Water Heater</p>
+        <table>
+            <thead>
+                <tr>
+                    <td>Brand</td>
+                    <td>Livguard</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Recommended Uses For Product</td>
+                    <td>Home</td>
+                </tr>
+                <tr>
+                    <td>Power Source</td>
+                    <td>Battery Powered</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    {% comment %} card ends  {% endcomment %}
+    {% comment %} card starts {% endcomment %}
+    <div class="battery-card">
+        <img src="{% static 'img/1650089593169-300x300.jpg' %}" alt="">
+        <sub>Solar products</sub>
+        <p>Orion Water Heater</p>
+        <table>
+            <thead>
+                <tr>
+                    <td>Brand</td>
+                    <td>Livguard</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Recommended Uses For Product</td>
+                    <td>Home</td>
+                </tr>
+                <tr>
+                    <td>Power Source</td>
+                    <td>Battery Powered</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    {% comment %} card ends  {% endcomment %}
+</div>
 {% include 'support/footer.html' %}

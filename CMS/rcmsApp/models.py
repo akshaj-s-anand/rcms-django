@@ -1,6 +1,13 @@
 # models.py
 from datetime import datetime
 from django.db import models
+from django.core.exceptions import ValidationError
+from django.core.validators import FileExtensionValidator
+
+def validate_image_size(value):
+    filesize = value.size
+    if filesize > 2 * 1024 * 1024:  # 2MB
+        raise ValidationError("The maximum file size that can be uploaded is 2MB.")
 
 class Item(models.Model):
     item_name = models.CharField(max_length=255, unique=True, null=True, blank=True)
@@ -58,8 +65,20 @@ class Complaint(models.Model):
     solution_found = models.CharField(max_length=200, blank=True, null=True, default='', help_text='How was the issue solved')
     assigned_engineer = models.ForeignKey(Engineer, on_delete=models.CASCADE, blank=True, null=True, default='')
     status = models.CharField(max_length=20, choices=STATUS_CHOICES, default='Open')
-    bill_amount = models.CharField(max_length = 5, null=True, blank=True, default=0)
+    bill_amount = models.CharField(max_length=5, null=True, blank=True, default=0)
+
+    @property
+    def customer_phone_number(self):
+        if self.customer:
+            return self.customer.phone_number
+        return None
 
     def __str__(self):
         engineer_name = self.assigned_engineer.name if self.assigned_engineer else "Unassigned"
         return f"Complaint {self.id} assigned to {engineer_name} - Status: {self.status}"
+    
+
+
+#products and brands 
+#not part of rcms
+
