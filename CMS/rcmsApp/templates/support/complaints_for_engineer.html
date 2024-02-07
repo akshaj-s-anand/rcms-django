@@ -1,0 +1,30 @@
+{% load static %}
+{% include 'support/header.html' %}
+<div class="container">
+<h2>Complaints for Engineer: {{ complaints.0.assigned_engineer.name }}</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Customer</th>
+            <th>Pub Date</th>
+            <th>Item</th>
+            <th>Brand</th>
+            <th>Model</th>
+            <th>Bill Amount</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for complaint in complaints %}
+            <tr>
+                <td>{{ complaint.customer }}</td>
+                <td>{{ complaint.pub_date }}</td>
+                <td>{{ complaint.item }}</td>
+                <td>{{ complaint.brand }}</td>
+                <td>{{ complaint.model }}</td>
+                <td>{{ complaint.bill_amount }}</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+</div>
+{% include 'support/footer.html' %}

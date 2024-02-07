@@ -1,0 +1,57 @@
+{% load static %}
+{% include 'support/header.html' %}
+<div class="contact">
+  <div class="contact-section-one mt-100">
+    <div class="container flex wrap">
+      <div class="contact-us">
+        <div class="cont-sec-1 wrap">
+          <strong>WE'D LOVE TO HEAR FROM YOU</strong>
+          <h1>Contact Us</h1>
+          <div class="red-border"></div>
+          <div class="flex wrap">
+            <div class="address">
+              <strong>REACH US THROUGH</strong>
+              <p>
+                <i class="fa-solid fa-location-dot"></i> 65, 3569E, Kottaram Rd, East Nadakkave, Nadakkave, Kozhikode, Kerala 673006
+              </p>
+              <p>
+                <i class="fa-solid fa-phone"></i> 9447385870, 0495-2771502, 8086995284
+              </p>
+              <p>
+                <i class="fa-solid fa-envelope"></i> admin@oriontechnologies.co.in
+              </p>
+            </div>
+            <div class="social-links">
+              <strong>SOCIAL NETWORKS</strong>
+              <p>
+                <i class="fa-brands fa-square-facebook"></i> Facebook
+              </p>
+              <p>
+                <i class="fa-brands fa-square-instagram"></i> Instagram
+              </p>
+              <p>
+                <i class="fa-brands fa-square-x-twitter"></i> Twitter
+              </p>
+            </div>
+          </div>
+          <div class="map">
+
+          </div>
+        </div>
+      </div>
+      <div class="message">
+        <h2>Send us a message</h2>
+        <div class="red-border"></div>
+        <div class="flex-dow">
+            <form action="post" class="contact-form">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit" class="reg btn">Submit</button>
+            </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% include 'support/footer.html' %}

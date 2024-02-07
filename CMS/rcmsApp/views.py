@@ -1,10 +1,16 @@
 from django.shortcuts import render, redirect
 from .models import Complaint, Customer, Engineer, Model, Item, Brand
-from .forms import CustomerRegistrationForm, PhoneSearchForm, EngineerSearchForm, ComplaintForm, NewComplaintForm
+from .forms import CustomerRegistrationForm, PhoneSearchForm, EngineerSearchForm, ComplaintForm, NewComplaintForm, ContactForm
 from django.contrib import messages
+from django.core.mail import send_mail
 
 def index(request):
-    return render(request, 'home/index.html')
+    title = "leading power backup solution company -Kerala"
+    context = {
+        'title':title
+    }
+    return render(request, 'home/index.html', context)
+    
 def complaint_form(request): 
     if request.method == 'POST':
         form = CustomerRegistrationForm(request.POST)
@@ -18,9 +24,11 @@ def complaint_form(request):
         form = CustomerRegistrationForm()
 
     complaints = Complaint.objects.all()
+    title = "leading power backup solution company -Kerala"
     context = {
         'complaints': complaints,
         'form': form,
+        'title':title,
     }
     return render(request, 'support/complaint_form.html', context)
 
@@ -32,13 +40,19 @@ def search_complaints(request):
             customer = Customer.objects.filter(phone_number=phone_number).first()
             if customer:
                 complaints = customer.related_complaints().order_by('-pub_date')
-                return render(request, 'complaint_list.html', {'complaints': complaints})
+                return render(request, 'support/complaint_list.html', {'complaints': complaints})
             else:
                 error_message = "No customer found with the specified phone number."
-                return render(request, 'search_complaints.html', {'form': form, 'error_message': error_message})
+                return render(request, 'support/search_complaints.html', {'form': form, 'error_message': error_message})
     else:
         form = PhoneSearchForm()
-    return render(request, 'support/search_complaints.html', {'form': form})
+    title = "leading power backup solution company -Kerala"
+    context = {
+        'form': form,
+        'title':title,
+    }
+
+    return render(request, 'support/search_complaints.html', context)
 
 def engineer_search(request):
     if request.method == 'POST':
@@ -59,12 +73,23 @@ def engineer_search(request):
                 return render(request, 'support/engineer_search.html', {'form': form, 'error_message': error_message})
     else:
         form = EngineerSearchForm()
-    return render(request, 'support/engineer_search.html', {'form': form})
+
+    title = "leading power backup solution company -Kerala"
+    context = {
+        'form': form,
+        'title':title,
+    }
+    return render(request, 'support/engineer_search.html', context)
 
 
 
 def complaint_list(request):
-    return render(request, 'support/complaint_list.html')
+    title = "leading power backup solution company -Kerala"
+
+    context = {
+        'title':title,
+    }
+    return render(request, 'support/complaint_list.html', context)
 
 
 def register_complaint(request):
@@ -103,8 +128,13 @@ def register_complaint(request):
         form.fields['item'].queryset = Item.objects.all()
         form.fields['brand'].queryset = Brand.objects.all()
         form.fields['model'].queryset = Model.objects.all()
+    title = "leading power backup solution company -Kerala"
+    context = {
+        'form': form,
+        'title':title,
+    }
 
-    return render(request, 'support/complaint_list.html', {'form': form})
+    return render(request, 'support/complaint_list.html', context)
 
 
 def new_complaint(request):
@@ -115,15 +145,114 @@ def new_complaint(request):
             return redirect('support/register_complaint')  # Redirect to the success page
     else:
         form = NewComplaintForm()
+    title = "leading power backup solution company -Kerala"
+    context = {
+        'form': form,
+        'title':title,
+    }
 
-    return render(request, 'support/new_complaint.html', {'form': form})
+    return render(request, 'support/new_complaint.html', context)
 
 
 
 def register_complaint(request):
+    title = "leading power backup solution company -Kerala"
+    context = {
+        'title':title,
+    }
 
-    return render(request, 'support/register_complaint.html')
+
+    return render(request, 'support/register_complaint.html', context)
 
 def complaint_home(request):
-    return render(request, 'support/complaint_home.html')
+    title = "leading power backup solution company -Kerala"
+    context = {
+        'title':title,
+    }
+    return render(request, 'support/complaint_home.html', context)
 
+def about(request):
+    title = "leading power backup solution company -Kerala"
+    context = {
+        'title':title,
+    }
+    return render(request, 'home/about.html', context)
+
+def services(request):
+    title = "leading power backup solution company -Kerala"
+    context = {
+        'title':title,
+    }
+    return render(request, 'home/services.html', context)
+
+def contact(request):
+    if request.method == 'POST':
+        form = ContactForm(request.POST)
+        if form.is_valid():
+            name = form.cleaned_data['name']
+            email = form.cleaned_data['email']
+            phone_number = form.cleaned_data['phone_number']
+            message = form.cleaned_data['message']
+            
+            # Construct email message
+            email_message = f'Name: {name}\nEmail: {email}\nPhone Number: {phone_number}\n\nMessage:\n{message}'
+
+            # Send email
+            send_mail(
+                'New Contact Form Submission',
+                email_message,
+                email,
+                ['webnovaitpark@gmail.com'],
+                fail_silently=False,
+            )
+            return render(request, 'support/register_complaint.html')  # Redirect to success page after form submission
+    else:
+        form = ContactForm()
+    title = "leading power backup solution company -Kerala"
+    context = {
+        'title':title,
+        'form':form,
+    }
+    return render(request, 'home/contact.html', context)
+
+def battery(request):
+    title = "leading power backup solution company -Kerala"
+    context = {
+        'title':title,
+    }
+    return render(request, 'home/battery.html', context)
+
+def solar_products(request):
+    title = "leading power backup solution company -Kerala"
+    context = {
+        'title':title,
+    }
+    return render(request, 'home/solar_products.html', context)
+
+def solar_water_heater(request):
+    title = "leading power backup solution company -Kerala"
+    context = {
+        'title':title,
+    }
+    return render(request, 'home/solar_water_heater.html', context)
+
+def ups(request):
+    title = "leading power backup solution company -Kerala"
+    context = {
+        'title':title,
+    }
+    return render(request, 'home/ups.html', context)
+
+def brand_orion(request):
+    title = "leading power backup solution company -Kerala"
+    context = {
+        'title':title,
+    }
+    return render(request, 'home/brand_orion.html', context)
+
+def brand_livguard(request):
+    title = "leading power backup solution company -Kerala"
+    context = {
+        'title':title,
+    }
+    return render(request, 'home/brand_livguard.html', context)

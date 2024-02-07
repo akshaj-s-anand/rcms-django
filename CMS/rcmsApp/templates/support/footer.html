@@ -1,0 +1,124 @@
+{% load static %}
+<div class="footer">
+<div class="flex container wrap">
+    <div class="footer-section footer-section-one flex-coloum">
+        <img src="{% static 'img/logo-2.png' %}" width="100%">
+        <p>Do you have any queries or comments about our website, our products or any of our services.?</p>
+        <div class="flex social-links">
+            <a href=""><i class="fa-brands fa-square-instagram"></i></a>
+            <a href=""><i class="fa-brands fa-square-facebook"></i></a>
+            <a href=""><i class="fa-brands fa-x-twitter"></i></a>
+        </div>
+        <p>Orion Technologies Copyright ©<span id="currentYear"></span> All rights reserved.</p>
+    </div>
+    <div class="footer-section footer-section-two flex-coloum">
+        <h2>Quick Links</h2>
+        <div class="quicklinks">
+            <a href="{% url 'index' %}"><i class="fa-solid fa-house"></i> Home</a>
+            <a href="{% url 'about' %}"><i class="fa-solid fa-building"></i> About</a>
+            <a href="{% url 'services' %}"><i class="fa-brands fa-servicestack"></i> Services</a>
+            <a href="{% url 'complaint_home' %}"><i class="fa-solid fa-gear"></i> Complaints</a>
+        </div>
+        <a href="https://orionpowerhouse.com/"><i class="fa-solid fa-handshake-simple"></i> Orion Powerhouse</a>
+    </div>
+    <div class="footer-section footer-section-three flex-coloum">
+        <h2>Contact Us</h2>
+        <div class="quicklinks">
+            <a href="{% url 'index' %}"><i class="fa-solid fa-address-book"></i> <span> 65, 3569E, Kottaram Rd, East Nadakkave, Nadakkave, Kozhikode, Kerala 673006</span></a>
+            <a href="{% url 'about' %}"><i class="fa-solid fa-phone"></i> <span>Phone: 0495-2771502, 94962 21042</span></a>
+            <a href="{% url 'services' %}"><i class="fa-solid fa-envelopes-bulk"></i> <span>Email: admin@oriontechnologies.co.in</span></a>
+            <a href="{% url 'complaint_home' %}"><i class="fa-solid fa-clock"></i> <span>Open hours: Mon-Sat 9 AM to 7PM</span></a>
+            <a href="{% url 'complaint_home' %}"><i class="fa-solid fa-clock-rotate-left"></i> <span>Happy hours: sat: 2 pm to 4 pm</span></a>
+        </div>
+    </div>
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% comment %} JavaScript {% endcomment %}
+<script>
+    function toggleNav() {
+        var navLinks = document.querySelector('.nav-links');
+        navLinks.classList.toggle('show');
+    }
+
+    // JavaScript for dropdown functionality
+    document.querySelectorAll('.dropdown').forEach(item => {
+        item.addEventListener('click', event => {
+            event.stopPropagation();
+            item.classList.toggle('active');
+            var dropdownContent = item.querySelector('.dropdown-content');
+            dropdownContent.classList.toggle('show');
+        });
+    });
+
+    // Close the dropdown menu if the user clicks outside of it
+    window.onclick = function(event) {
+        if (!event.target.matches('.dropbtn')) {
+            var dropdowns = document.getElementsByClassName("dropdown-content");
+            for (var i = 0; i < dropdowns.length; i++) {
+                var openDropdown = dropdowns[i];
+                if (openDropdown.classList.contains('show')) {
+                    openDropdown.classList.remove('show');
+                }
+            }
+        }
+    }
+
+
+
+
+
+
+    success_message = () => {
+        document.getElementById('show').style.display = 'block';
+    }
+    
+    // Get the current year
+    var currentYear = new Date().getFullYear();
+    
+    // Insert the current year into the HTML content
+    document.getElementById("currentYear").innerText = currentYear;
+
+    let currentSlide = 0;
+const slides = document.querySelectorAll('.carousel-slide');
+
+function showSlide(index) {
+  if (index < 0) {
+    currentSlide = slides.length - 1;
+  } else if (index >= slides.length) {
+    currentSlide = 0;
+  }
+
+  slides.forEach((slide, i) => {
+    slide.style.display = i === currentSlide ? 'block' : 'none';
+  });
+}
+
+function nextSlide() {
+  showSlide(++currentSlide);
+}
+
+function prevSlide() {
+  showSlide(--currentSlide);
+}
+
+// Display the first slide initially
+showSlide(currentSlide);
+
+</script>
+</body>
+</html>

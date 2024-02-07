@@ -1,0 +1,64 @@
+{% load static %}
+{% include 'support/header.html' %}
+<div class="about flex-down container">
+    {% comment %} section one starts {% endcomment %}
+    <div class="flex service-section-one wrap container justify-space-around">
+        <div class="flex-down service-para">
+            <h1>OUR SERVICES</h1>
+            <p>
+                We provide a wide range of products and services, 
+                
+                let it be a small scale inverter for your home, 
+                
+                or a huge power backup system for your IT firms, 
+                
+                industries, hospitals, educational institutions or any other establishment. 
+                
+                We distribute the best quality inverter and battery, 
+                
+                best water heater and also provides solar panel installation services. 
+                
+                A wide variety of automobile batteries for all your favourite automobiles. 
+                
+                Customers are our asset, our team ensures guaranteed customer support and service assistance. 
+                
+                Contact us for any related services, deals and queries, we have the right solution suggestion for your requirements.
+            </p>
+        </div>
+        <div class="flex-down service-images justify-flex-end">
+            <img src="{% static 'img/ups-inverter.png' %}" alt="">
+        </div>
+        <div class="flex-down service-images justify-center">
+            <img src="{% static 'img/solar-energy.png' %}" alt="">
+        </div>
+        <div class="flex-down service-images">
+            <img src="{% static 'img/battery.png' %}" alt="">
+        </div>
+        <div class="service-section-one-part-two flex-down">
+            <ul>
+                <li>Telephone assistance is available from 9.00am – 7.30 pm (except holidays)</li>
+                <li>For customer care helpline assistance: 8086995284, 0495 - 2771502</li>
+                <li>Mail us: orionupsclt@gmail.com</li>
+            </ul>
+        </div>
+        <div class="contactbutton flex align-item-center">
+            <a href="{% url 'contact' %}" class="reg red btn">Contact</a>
+        </div>
+    </div>
+    {% comment %} section one ends {% endcomment %}
+    <div class="flex service-section-two wrap container justify-space-around">
+        <div class="head-para flex-down">
+            <h2>MANUFACTURING</h2>
+            <p>We understand the need of the customer and focus on innovation to produce products having high-end technology at affordable prices and constantly evolving features. What inspires us the most to deliver high quality products is our quality in manufacturing the best solar water heater, inverter and battery, best solar inverter with battery for your happy place. For any product from our home, even if its solar panel installation or other Orion products, you will get the best possible solution and that is 100% guaranteed.</p>
+        </div>
+        <div class="head-para flex-down">
+            <h2>INSTALLATION</h2>
+            <p>Advanced Solar Products is a New Jersey based, full-service installer/integrator of photovoltaic (PV) systems. Our experience and expertise is in harvesting solar energy by means of solar panel installation for commercial and industrial organizations, and educational institutions, municipalities, farming and agricultural businesses, major utilities, and other large applications. Connect us, the best dealers of solar installation near you. Find your suitable solution in solar on grid system or solar off grid system installations for extra money saving.</p>
+        </div>
+        <div class="head-para flex-down">
+            <h2>MANUFACTURING</h2>
+            <p>We provide excellent maintenance facilities to even customers who have installed solar systems from other companies and are facing problems. We have strong technical team in our service department to serve this purpose. Excellent customer support for solar panel installation and for other products.It is our dedication to quality practices and adherence to strict processes, controls and checks, which has resulted in ‘ORION’ products acquiring the distinction of being proven, reliable and truly the best in terms of technology & innovation.</p>
+        </div>
+    </div>
+</div>
+{% include 'support/footer.html' %}

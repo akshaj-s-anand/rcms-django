@@ -1,0 +1,72 @@
+{% load static %}
+{% include 'support/header.html' %}
+<div class="flex home-main">
+    <h2>Orion Complaint Registration Portal</h2>
+  </div>
+  <div class="buttonarea flex container">
+    <a href="{% url 'complaint_form' %}" target="_blank" class="reg">customer registration portal</a>
+    <a href="{% url 'search_complaints' %}" target="_blank" class="reg">Find your Complaint status</a>
+  
+  </div>
+  <div class="full-width">
+    <div class="small-container flex">
+      <div class="how-we-work">
+        <h1>How we works</h1>
+        <div class="step">
+          <h3>Step : 1 Register as a Customer</h3>
+          <p>
+            If you haven't yet become a valued customer at Orion Technologies Pvt. Ltd.,
+  
+            we invite you to register via our user-friendly <a href="{% url 'complaint_form' %}" target="_blank">customer registration portal</a>.
+  
+            For those who have already completed the registration process on our website,
+  
+            effortlessly access your personalized profile by using the <a href="{% url 'complaint_form' %}" target="_blank">customer registration portal</a> feature.<br />
+  
+            Once you've officially become an esteemed member of our customer community,
+  
+            seamlessly log in to your account. If you successfully log in with your registered phone number,
+  
+            feel free to proceed to the next step.
+          </p>
+        </div>
+        <div class="step">
+          <h3>Step : 2 Register Your a Complaint</h3>
+          <p>
+            Once you have successfully logged in to the <a href="{% url 'search_complaints' %}" target="_blank">customer page</a>, you can register a new complaint.
+  
+            Our service team will contact you as soon as possible.
+  
+            A dedicated service engineer will be assigned to your complaint,
+  
+            and they will reach out to you immediately. We will promptly reach the location and resolve your complaint.
+  
+            You can also view your service history via this website.
+          </p>
+        </div>
+      </div>
+      <div class="login-area">
+        <div class="login-pannel">
+          <h3>Are you a Customer?</h3>
+          <ul>
+            <li>
+              <a href="{% url 'complaint_form' %}" target="_blank">Join our happy customers</a>
+            </li>
+            <li>
+              <a href="{% url 'search_complaints' %}">Login as a Customer</a>
+            </li>
+          </ul>
+          <hr>
+          <ul>
+            <li>
+              <a href="{% url 'engineer_search' %}">Login as engineer</a>
+            </li>
+            <li>
+              <a href="{% url 'admin:index' %}">Login as admin</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  {% include 'support/footer.html' %}

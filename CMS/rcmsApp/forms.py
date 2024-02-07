@@ -56,3 +56,9 @@ class NewComplaintForm(forms.ModelForm):
         if commit:
             instance.save()
         return instance
+    
+class ContactForm(forms.Form):
+    name = forms.CharField(max_length=100, label='Name')
+    email = forms.EmailField(label='Email')
+    phone_number = forms.CharField(max_length=15, label='Phone Number')
+    message = forms.CharField(widget=forms.Textarea, label='Message')
