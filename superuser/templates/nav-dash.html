@@ -1,0 +1,27 @@
+{% load static %}
+{% load active_url %}
+<section>
+    <div class="d-flex flex-column bg-orion-grey min-h-100-vh p-3">
+        <a href="{% url 'superuser:superuser_dashboard' %}" class="text-decoration-none nav-dash-bg text-orion-red p-3 mt-1 {% active request '^/superuser/dashboard/$' %}">
+            <i class="fa-solid fa-house"></i>
+            Dashboard
+        </a>
+        <a href="{% url "complaints:complaint_list" %}" class="text-decoration-none nav-dash-bg text-orion-red p-3 mt-1 {% active request '^/complaints/complaint-list/$' %}">
+            <i class="fa fa-gavel"></i>
+            Complaints
+        </a>
+        <a href="{% url "customers:customer_list" %}" class="text-decoration-none nav-dash-bg text-orion-red p-3 mt-1 {% active request '^/customer/customer-list/$' %}">
+            <i class="fa-solid fa-users-gear"></i>
+            Customers
+        </a>
+        <a href="#" class="text-decoration-none nav-dash-bg text-orion-red p-3 mt-1 {% active request '^/engineers/engineer-list/$' %}">
+            <i class="fa-solid fa-wrench"></i>
+            Engineers
+        </a>
+        <a href="#" class="text-decoration-none nav-dash-bg text-orion-red p-3 mt-1 {% active request '^/dealers/dealer-list/$' %}">
+            <i class="fa-solid fa-store"></i>
+            Dealers
+        </a>
+        <hr>
+    </div>
+</section>

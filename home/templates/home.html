@@ -1,0 +1,128 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+  Power Backup Solution - Kerala
+{% endblock %}
+{% block section_one %}
+  {% include 'background-image.html' %}
+  <section class="banner">
+    <div class="container min-h-600">
+      <div class="row min-h-600">
+        <div class="col-md-6 min-h-600">
+          <div class="d-flex flex-column justify-content-center min-h-600">
+            <p class="text-orion-white xxl">
+              പുരപ്പുറ സോളാർ <span class="text-orion-red xxl">പദ്ധതി</span>
+            </p><br />
+            <div class="d-inline neg-my">
+              <p class="text-orion-white xxl d-inline">SURYA GHAR</p>
+              <a href="{% url "home:surya_ghar" %}"><i class="fa-solid fa-sun fa-spin text-orion-red xxxl glowing-icon"></i></a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="container d-flex flex-column min-h-600 align-items-center justify-content-center">
+            {% include 'modal.html' %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+{% endblock %}
+{% block section_two %}
+  <section class="about_section mt-5">
+    <div class="container">
+      <div class="d-flex justify-content-center">
+        <img src="{% static 'img/since-1999.png' %}" alt="legacy" width="100px" />
+      </div>
+      <h1 class="text-center mb-3 text-capitalize xl">
+        Leading <span class="text-orion-red">power Backup Solution</span>
+        Company
+      </h1>
+      <div class="row d-flex align-items-stretch">
+        <div class="col-md-6 d-flex">
+          <div class="d-flex justify-content-center align-items-center w-100">
+            <img src="{% static 'img/office02.jpg' %}" alt="orion-office" class="rounded shadow-lg w-100" />
+          </div>
+        </div>
+        <div class="col-md-6 d-flex flex-column align-items-start">
+          <div class="d-flex justify-content-center align-items-center text-justify l">At Orion Calicut, we pride ourselves on being a premier power backup solution company dedicated to delivering reliable and efficient solutions for our clients. With a focus on innovation and quality, we offer a comprehensive range of backup power solutions tailored to meet the unique needs of businesses and individuals alike. Whether it's ensuring uninterrupted power supply for critical operations or providing backup power for residential properties, we are committed to delivering top-notch products and services. Our team of experts is highly trained and experienced, ensuring that we exceed our customers' expectations with every project. Partner with Orion Calicut for all your power backup needs and experience peace of mind knowing that your power supply is in capable hands.Orion Technologies is a leading power backup solution company, offering innovative and reliable products to ensure uninterrupted power supply for businesses and individuals alike.</div>
+          <a href="#" class="orion-red-button mt-4">Learn more about us</a>
+        </div>
+      </div>
+    </div>
+  </section>
+{% endblock %}
+{% block section_three %}
+  <section class="services mt-5">
+    <div class="container">
+      <h1 class="text-center mb-3 text-capitalize xl">Orion Technologies <span class="text-orion-red">Services</span></h1>
+      <div class="row d-flex align-items-stretch">
+        <div class="col-md-4 d-flex justify-content-center mt-3">
+          <div class="card shadow-lg" style="width: 25rem;">
+            <img src="{% static 'img/service01.png' %}" class="card-img-top" alt="..." />
+            <div class="card-body">
+              <h3 class="text-orion-red">UPS/Inverters</h3>
+              <p class="card-text text-justify">Orion technologies provide the best solution for your power backup needs. We are providing the best inverter with battery for home. We are the leading authorised dealers of inverter and inverter with battery and ups dealers in calicut. We are striving to make available the best deal for inverter with battery price in Kerala. Select the best inverter for home from Orion technologies.In Kerala, Orion Technologies is the leading inverter battery distributor.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 d-flex justify-content-center mt-3">
+          <div class="card shadow-lg" style="width: 25rem;">
+            <img src="{% static 'img/solar-energy.png' %}" class="card-img-top" alt="..." />
+            <div class="card-body">
+              <h3 class="text-orion-red">Solar Products</h3>
+              <p class="card-text text-justify">Orion Technologies provides life time guaranteed Solar systems, solar inverter with battery, solar water heaters etc. We do solar panel installation everywhere if solar is available. We have solar panel installation dealers all over Kerala. We assure quality for every solar system we deliver, the efficiency of solar panel, type of flat plate collector, types of solar panels and our genuine service support. Utilize the benefits of solar energy. Check out our Solar system variants.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 d-flex justify-content-center mt-3">
+          <div class="card shadow-lg" style="width: 25rem;">
+            <img src="{% static 'img/battery.png' %}" class="card-img-top" alt="..." />
+            <div class="card-body">
+              <h3 class="text-orion-red">Batteries</h3>
+              <p class="card-text text-justify">Orion Technologies is No.1 multi-brand battery store, offering 100% genuine automobile and inverter batteries with manufacturer warranty. Authorized dealers of best inverter battery for home. Automobile batteries available from your favourite battery brands such as exide batteries, Livguard tractor batteries, amaron battery etc. Don’t waste your time searching car battery dealers near you, everything available here.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+{% endblock %}
+{% block section_four %}
+  <section class="testimonials my-5">
+    <div class="container">
+      <div class="d-flex flex-column justify-content-center align-items-center">
+        <h2 class="mb-3 text-capitalize xl">Testimonials</h2>
+      </div>
+      <div class="row">
+        <div class="col-md-4 d-flex justify-content-center mt-3">
+          <div class="card" style="width: 25rem;">
+            <div class="card-body bg-orion-red">
+              <h5 class="card-title">Shanidh Ramsan</h5>
+              <h6 class="card-subtitle mb-2">ORTEL SOFTWARE TECHNOLOGIES</h6>
+              <p class="card-text">Orion is taking care of power backup solutions in our company. They are providing the best products at an effective cost. Thanks to the whole team</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 d-flex justify-content-center mt-3">
+          <div class="card" style="width: 25rem;">
+            <div class="card-body bg-orion-red">
+              <h5 class="card-title">Aneesh v v</h5>
+              <h6 class="card-subtitle mb-2">CUSTOMER</h6>
+              <p class="card-text">It was an excellent service from this Orion Technologies , when I approached them for purchasing an UPS. They have quoted nominal amount for it.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 d-flex justify-content-center mt-3">
+          <div class="card" style="width: 25rem;">
+            <div class="card-body bg-orion-red">
+              <h5 class="card-title">Shimjith P M</h5>
+              <h6 class="card-subtitle mb-2">CUSTOMER</h6>
+              <p class="card-text">Best solution for the solar home grid, off grid, solar water heater, inverter battery's In Calicut. Good planning work & Good service provider.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+{% endblock %}

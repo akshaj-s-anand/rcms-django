@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+{% block title %}
+  Services - Oriontechnologies | Power Backup Solutions
+{% endblock %}
+{% block section_one %}
+  <div class="container">
+    <h1 class="text-center mb-3 text-capitalize xl my-5">Product List</h1>
+    <!-- Filter Form -->
+    <div>
+      <form method="get d-flex flex-column bg-grey">
+        <div class="row mb-3">
+          <div class="col-md-3">
+            <label for="category">Category</label>
+            {{ filter_form.category }}
+          </div>
+          <div class="col-md-3">
+            <label for="brand">Brand</label>
+            {{ filter_form.brand }}
+          </div>
+          <div class="col-md-3">
+            <label for="recommended_uses_for_product">Recommended Uses</label>
+            {{ filter_form.recommended_uses_for_product }}
+          </div>
+          <div class="col-md-3">
+            <label for="power_source">Power Source</label>
+            {{ filter_form.power_source }}
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary">Filter</button>
+      </form>
+    </div>
+
+    <div class="my-5 row ">
+      {% for product in products %}
+        <ul class="col-md-3 border rounded p-3 shadow bg-white list-dec-none row mx-1">
+          <li>
+            <strong>{{ product.name }}</strong><br />
+            <table>
+              <tr>
+                <th>Brand</th>
+                <td>{{ product.brand }}</td>
+              </tr>
+              <tr>
+                <th>Category</th>
+                <td>{{ product.category }}</td>
+              </tr>
+              <tr>
+                <th>Recommended Uses</th>
+                <td>{{ product.recommended_uses_for_product }}</td>
+              </tr>
+              <tr>
+                <th>Power Source</th>
+                <td>{{ product.power_source }}</td>
+              </tr>
+            </table>
+
+            {% if product.image %}
+              <img src="{{ product.image.url }}" alt="{{ product.name }}" width="200" /><br />
+            {% endif %}
+          </li>
+        </ul>
+      {% endfor %}
+    </div>
+  </div>
+{% endblock %}

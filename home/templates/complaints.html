@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block section_one %}
+  <section class="mt-5">
+    <div class="container">
+      <h2 class="text-center">Online Complaint Registration Portal</h2>
+      <div class="row">
+        <div class="col-md-9">
+          <h2>How we work?</h2>
+          <strong>Step : 1 Register as a Customer</strong>
+          <p>If you haven't yet become a valued customer at Orion Technologies Pvt. Ltd., we invite you to register via our user-friendly customer registration portal. For those who have already completed the registration process on our website, effortlessly access your personalized profile by using the customer registration portal feature. Once you've officially become an esteemed member of our customer community, seamlessly log in to your account. If you successfully log in with your registered phone number, feel free to proceed to the next step.</p>
+          <br />
+          <strong>Step : 2 Register Your a Complaint</strong>
+          <p>Once you have successfully logged in to the customer page, you can register a new complaint. Our service team will contact you as soon as possible. A dedicated service engineer will be assigned to your complaint, and they will reach out to you immediately. We will promptly reach the location and resolve your complaint. You can also view your service history via this website.</p>
+        </div>
+        <div class="col-md-3 border-left">
+          <a href="#" class="orion-link">Register a new Complaint</a> <br />
+          <a href="#" class="orion-link">Complaint Status</a>
+          <hr />
+          <a href="#" class="orion-link">Register as a Customer</a><br />
+          <a href="#" class="orion-link">Login as a Customer</a>
+          <hr />
+          <a href="#" class="orion-link">Login as engineer</a><br />
+          <a href="{% url "login:superuser_login" %}" class="orion-link">Login as admin</a>
+        </div>
+      </div>
+    </div>
+  </section>
+{% endblock %}

@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+{% block title %}
+  Contact | Oriontechnologies
+{% endblock %}
+
+{% block section_one %}
+  <section class="my-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7825.722575824201!2d75.7696285843849!3d11.27160541164947!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba65f82495f8157%3A0x36a4d6ef251f153a!2sLivguard%20Solar%20-%20Orion%20Technologies!5e0!3m2!1sen!2sin!4v1721039570391!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+        <div class="col-md-6 px-3 py-5 border rounded bg-white">
+          <form method="get">
+            <h3 class="h3 text-center">Send us a message</h3>
+            {{ form.as_p }}
+            <button class="orion-red-button" type="submit">Submit</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+{% endblock %}
+{% block section_two %}
+  <section class="my-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 d-flex flex-column p-5 bg-white">
+          <h2 class="h2 text-center">Contact Us</h2>
+          <strong>REACH US THROUGH</strong>
+          <table class="table">
+            <tbody>
+              <tr>
+                <td>
+                  <i class="fa-solid fa-location-dot"></i>
+                </td>
+                <td>65, 3569E, Kottaram Rd, East Nadakkave, Nadakkave, Kozhikode, Kerala 673006</td>
+              </tr>
+              <tr>
+                <td>
+                  <i class="fa-solid fa-phone"></i>
+                </td>
+                <td>9496221042, 8086995284, 0495-2771502, 9447385870</td>
+              </tr>
+              <tr>
+                <td>
+                  <i class="fa-solid fa-envelope"></i>
+                </td>
+                <td>orionupsclt@gmail.com</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="col-md-6 d-flex flex-column justify-content-center rounded social-border">
+          <h3 class="h3 text-center">Social Networks</h3>
+          <div class="social-icons d-flex justify-content-center">
+            <a href="https://www.facebook.com/oriontechnologiescalicut/" target="_blank" class="social-link"><i class="fab fa-facebook"></i></a>
+            <a href="https://www.instagram.com/orion_technologies/" target="_blank" class="social-link"><i class="fab fa-instagram"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+{% endblock %}

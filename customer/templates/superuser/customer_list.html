@@ -1,0 +1,62 @@
+{% extends 'base-dash.html' %}
+{% block title %}
+  RCMS Dashboard | SuperAdmin
+{% endblock %}
+{% block dashboard_content %}
+  <form id="bulkDeleteForm" method="POST" action="{% url 'customers:customer_bulk_delete' %}">
+    {% csrf_token %}
+    <a href="#" class="orion-green-button" data-bs-toggle="modal" data-bs-target="#addCustomerModal">Add New Customer</a>
+    <button type="submit" class="orion-red-button">Delete Selected</button>
+    <table id="customerTable" class="table table-striped table-bordered display mt-5">
+      <thead>
+        <tr>
+          <th><input type="checkbox" id="selectAll" /></th>
+          <th>Username</th>
+          <th>Email</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for customer in customers %}
+          <tr>
+            <td><input type="checkbox" name="selected_customers" value="{{ customer.id }}" /></td>
+            <td>{{ customer.username }}</td>
+            <td>{{ customer.email }}</td>
+          </tr>
+        {% empty %}
+          <tr>
+            <td colspan="3">No customers found.</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </form>
+  {% include 'superuser/add_customer.html' %}
+  <script>
+    $(document).ready(function () {
+      $('#customerTable').DataTable();
+  
+      // Select or deselect all checkboxes
+      $('#selectAll').click(function () {
+        $('input[name="selected_customers"]').prop('checked', this.checked);
+      });
+  
+      // Handle the customer creation form submission via AJAX
+      $('#addCustomerForm').submit(function (event) {
+        event.preventDefault();
+        var formData = $(this).serialize();
+        $.ajax({
+          url: $(this).attr('action'),
+          type: 'POST',
+          data: formData,
+          success: function (response) {
+            $('#addCustomerModal').modal('hide');
+            location.reload(); // Reload the page to reflect the changes
+          },
+          error: function (xhr, status, error) {
+            alert('Error creating customer. Please try again.');
+          }
+        });
+      });
+    });
+  </script>
+{% endblock %}

@@ -1,0 +1,69 @@
+<div class="w-100 bg-orion-grey d-flex flex-column rounded align-content-center min-h-400">
+  <div class="enquire-form-head">Enquire</div>
+    <form method="post" class="w-100 px-5 pt-5">
+        {% csrf_token %}
+        {% if messages %}
+            {% for message in messages %}
+                <div class="alert alert-success" role="alert">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endif %}
+        {{ form.as_p }}
+        <button type="submit" class="orion-red-button">Enquire</button>
+    </form>
+</div>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+  $(document).ready(function () {
+    var typingTimer;  // Timer identifier
+    var doneTypingInterval = 500;  // Time in milliseconds (0.5 seconds)
+
+    $('input[name="phone_number"]').on('input', function () {
+        var phoneNumber = $(this).val();
+
+        // Remove non-digit characters and restrict to 10 digits
+        phoneNumber = phoneNumber.replace(/[^0-9]/g, '').slice(0, 10);
+        $(this).val(phoneNumber);
+
+        // Clear previous timer
+        clearTimeout(typingTimer);
+
+        // Set a new timer
+        typingTimer = setTimeout(function() {
+            checkPhoneNumber(phoneNumber);
+        }, doneTypingInterval);
+    });
+
+    // Function to check phone number via AJAX
+    function checkPhoneNumber(phoneNumber) {
+        if (phoneNumber.length > 0) {
+            $.ajax({
+                url: "{% url 'home:check_phone_number' %}",
+                data: { phone_number: phoneNumber },
+                dataType: 'json',
+                success: function (data) {
+                    if (data.exists) {
+                        $('input[name="name"]').val(data.name);
+                    } else {
+                        $('input[name="name"]').val('');
+                    }
+                }
+            });
+        } else {
+            $('input[name="name"]').val('');
+        }
+    }
+
+    // Allow only digits and specific control keys (backspace, delete, left, right)
+    $('input[name="phone_number"]').on('keydown', function (event) {
+        if (!(event.keyCode >= 48 && event.keyCode <= 57) &&
+            !(event.keyCode >= 96 && event.keyCode <= 105) &&  // Numpad numbers
+            !(event.keyCode === 8 || event.keyCode === 46 ||  // Backspace, Delete
+              event.keyCode === 37 || event.keyCode === 39)) {  // Left arrow, Right arrow
+            event.preventDefault();
+        }
+    });
+});
+
+</script>

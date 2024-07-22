@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block section_one %}
+  <section class="my-5">
+    <div class="container d-flex justify-content-center align-items-center flex-column mh-50-vh">
+      <div class="p-5 d-flex flex-column border rounded shadow bg-white">
+        <h2 class="text-orion-red">Superuser Login</h2>
+        <form method="post" class="d-flex flex-column login-form">
+          {% csrf_token %}
+          {{ form }}
+          <button type="submit" class="mt-2 orion-red-button">Login</button>
+        </form>
+      </div>
+    </div>
+  </section>
+{% endblock %}

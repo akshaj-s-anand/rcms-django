@@ -1,0 +1,84 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Malayalam:wght@100..900&display=swap');
+
+:root {
+    --primary-red: #E31E24;
+    --primary-red-bold: #ac0e14;
+    --secondary-black: #2B2A29;
+    --background-grey: #f1f1f1;
+    --border-grey: #707070;
+    --success-green: #0a570a;
+    --success-green-bold: #053705;
+}
+
+body {
+    background-color: var(--background-grey);
+    color: var(--secondary-black);
+    font-family: "Noto Sans Malayalam", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+}
+
+.bg-orion-grey {
+    background-color: var(--background-grey);
+}
+
+.bg-orion-red {
+    background-color: var(--primary-red);
+    color: var(--background-grey);
+}
+
+.text-orion-white {
+    color: var(--background-grey);
+}
+
+.text-orion-red {
+    color: var(--primary-red);
+}
+
+.orion-red-button {
+    padding: 10px 20px;
+    background-color: var(--primary-red);
+    color: var(--background-grey);
+    border: none;
+    text-decoration: dotted;
+}
+
+.orion-red-button:hover {
+    background-color: var(--primary-red-bold);
+}
+
+.orion-green-button {
+    padding: 10px 20px;
+    background-color: var(--success-green);
+    color: var(--background-grey);
+    border: none;
+    text-decoration: dotted;
+}
+
+.orion-green-button:hover {
+    background-color: var(--success-green-bold);
+}
+
+.min-h-100-vh {
+    min-height: 100vh;
+}
+
+.nav-dash-bg:hover,
+.active {
+    background-color: var(--primary-red);
+    color: var(--background-grey);
+}
+
+.dashboard_form {
+    background-color: var(--background-grey);
+}
+.dashboard_form input{
+    padding: 5px;
+    border-radius: 3px;
+    border: 1px dotted var(--border-grey);
+}
+*[type=submit]{
+    -webkit-appearance: none !important;
+    appearance: var(--background-grey) !important;
+    line-height: normal !important;
+}
